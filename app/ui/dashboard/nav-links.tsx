@@ -11,7 +11,7 @@ const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   { name: 'Data Kerusakan', href: '/dashboard/kerusakan', icon: DocumentIcon },
   { name: 'Data Gejala', href: '/dashboard/gejala', icon: DocumentIcon },
-  { name: 'Basis Aturan', href: '/dashboard/rule', icon: CogIcon },
+  { name: 'Basis Aturan', href: '/dashboard/aturan', icon: CogIcon },
 ];
 
 export default function NavLinks() {
