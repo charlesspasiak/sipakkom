@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { lemon } from '@/app/ui/fonts';
+import { lemon } from '@/components/fonts';
 
 
 const SipakomLogo = () => {

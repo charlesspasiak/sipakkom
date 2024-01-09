@@ -1,11 +1,10 @@
 // import Pagination from '@/app/ui/invoices/pagination';
 // import Search from '@/app/ui/search';
-import Table from '@/app/ui/kerusakan/table';
-import { TambahDataKerusakan } from '@/app/ui/kerusakan/buttons';
+import { TambahDataKerusakan } from '@/components/ui/kerusakan/buttons';
 // import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 // import { Suspense } from 'react';
 // import { fetchInvoicesPages } from '@/app/lib/data';
-import { lusitana } from '@/app/ui/fonts';
+import { lusitana } from '@/components/fonts';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default async function Page() {
         {/* <Search placeholder="Search invoices..." /> */}
         <TambahDataKerusakan />
       </div>
-      <Table />
+      {/* <Table /> */}
     </div>
   );
 }
