@@ -40,6 +40,7 @@ model Kerusakan {
   kdKerusakan String   @unique
   kerusakan   String
   solusi      String
+  rule        Rule?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -48,6 +49,18 @@ model Gejala {
   id        String   @id @default(uuid())
   kdGejala  String   @unique
   gejala    String
+  rule      Rule?    @relation(fields: [kdRule], references: [kdRule])
+  kdRule    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Rule {
+  id          String    @id @default(uuid())
+  kdRule      String    @unique
+  gejala      Gejala[]
+  kerusakan   Kerusakan @relation(fields: [kdKerusakan], references: [kdKerusakan])
+  kdKerusakan String    @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
