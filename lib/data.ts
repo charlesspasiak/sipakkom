@@ -14,3 +14,18 @@ export async function fetchDataKerusakan() {
     throw new Error('Failed to fetch data kerusakan');
   }
 }
+
+export async function fetchDataGejala() {
+  try {
+    const indications = await prismadb.gejala.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      }
+    });
+
+    return indications;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data gejala');
+  }
+}
