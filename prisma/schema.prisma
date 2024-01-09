@@ -37,8 +37,9 @@ model users {
 
 model Kerusakan {
   id          String   @id @default(uuid())
-  kdKerusakan String
+  kdKerusakan String   @unique
   kerusakan   String
+  solusi      String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
