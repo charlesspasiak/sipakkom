@@ -19,7 +19,7 @@ export async function fetchDataGejala() {
   try {
     const indications = await prismadb.gejala.findMany({
       orderBy: {
-        createdAt: 'desc',
+        kdGejala: 'asc',
       }
     });
 
@@ -27,5 +27,24 @@ export async function fetchDataGejala() {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch data gejala');
+  }
+}
+
+export async function fetchRule() {
+  try {
+    const rules = await prismadb.rule.findMany({
+      include: {
+        gejala: true,
+        kerusakan: true
+      },
+      orderBy: {
+        createdAt: 'desc',
+      }
+    });
+
+    return rules;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch rule');
   }
 }
