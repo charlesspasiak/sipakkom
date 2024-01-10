@@ -1,16 +1,14 @@
-'use client';
+import Diagnosa from '@/components/Diagnosa'
+import { fetchRule } from '@/lib/data'
 
-const Home = () => {
+const Home = async () => {
+  const rules = await fetchRule();
+  const kdGejala = rules.map((rule) => rule.gejala.map((g) => g.kdGejala));
+  
   return (
-    <main className='p-5'>
-      <h1 className='text-3xl font-bold mb-3'>Diagnosa Kerusakan Komputer</h1>
-      <div>
-        <h2 className='text-xl font-medium'>
-          Apa saja kendala yang anda alami dalam pemakaian komputer?
-        </h2>
-      </div>
+    <main className='bg-[#adf0ff] flex justify-center items-center min-h-screen'>
+      <Diagnosa kdGejala={kdGejala} />
     </main>
-  );
-};
-
-export default Home;
+  )
+}
+export default Home

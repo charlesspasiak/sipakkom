@@ -11,7 +11,7 @@ import { fetchRule } from '@/lib/data';
 
 const TableKerusakan = async () => {
   const rules = await fetchRule();
-  const kdGejala = rules.flatMap((rule) => rule.gejala.map((g) => g.kdGejala)).join(', ');
+  const kdGejala = rules.map((rule) => rule.gejala.map((g) => g.kdGejala));
 
   return (
     <Table className='mt-6 flow-root'>
@@ -23,10 +23,10 @@ const TableKerusakan = async () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {rules.map((rule) => (
+        {rules.map((rule, index) => (
           <TableRow key={rule.id}>
             <TableCell className='text-center'>{rule.kdRule}</TableCell>
-            <TableCell>{kdGejala}</TableCell>
+            <TableCell>{kdGejala[index].join(', ')}</TableCell>
             <TableCell>{rule.kerusakan.kerusakan}</TableCell>
           </TableRow>
         ))}
